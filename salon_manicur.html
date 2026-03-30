@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студия маникюра "Милка"</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#masters">Мастера</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                <a href="appointment.html" class="btn-primary">Записаться</a>
+                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+            </div>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Преобразите ваши руки</h1>
+            <p>Профессиональный маникюр, педикюр и дизайн ногтей от наших экспертов.</p>
+            <a href="#appointment" class="btn-hero">Записаться онлайн</a>
+        </div>
+    </div>
+    <div class="services">
+        <div class="container">
+            <h2>Наши Услуги</h2>
+            <div class="services-grid">
+                <!-- Услуги будут загружены через JS -->
+            </div>
+        </div>
+    </div>
+        <div class="gallery">
+            <div class="container">
+                <h2>Галерея работ</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="img/работа1.jpg"alt="Работа 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/работа2.jpg"alt="Работа 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/работа3.jpg"alt="Работа 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/работа4.jpg"alt="Работа 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/работа5.jpg"alt="Работа 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/работа6.jpg"alt="Работа 6">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/работа7.jpg"alt="Работа 7">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/работа8.jpg"alt="Работа 8">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    <div id="masters" class="section-padding">
+        <div class="container">
+            <h2>Наши Мастера</h2>
+            <div class="masters-grid">
+                <!-- Мастера будут загружены через JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ЗАКОММЕНТИРОВАННЫЕ СЕКЦИИ ==================== -->
+
+    <!-- Секция записи на услугу (отключена) -->
+    <!-- <div id="appointment" class="section-padding bg-primary">
+        <div class="container">
+            <h2>Записаться на услугу</h2>
+            <p>Выберите удобное время и мастера.</p>
+            <a href="#" class="btn btn-hero btn-light">Перейти к записи</a>
+        </div>
+    </div> -->
+
+    <!-- Подвал с контактами -->
+    <footer id="contact" class="section-padding">
+        <div class="container">
+            <h2>Свяжитесь с нами</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:info@elegant-nails.ru">info@elegant-nails.ru</a>
+                </div>
+                <div class="contact-item address">
+                    <p>г. Москва, ул. Красная, д. 10, офис 5</p>
+                </div>
+            </div>
+            <div class="contact-actions">
+                <a href="contact.html" class="btn btn-primary">Написать сообщение</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно входа для сотрудников (отключено) -->
+    <!-- <div id="login" class="modal">
+        <div class="modal-content">
+            <div class="close-button">×</div>
+            <h2>Вход для сотрудников</h2>
+            <form>
+                <label for="username">Логин:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+        </div>
+    </div> -->
+
+
+    <!-- Подключение JavaScript-файла -->
+    <script src="js/script.js"></script>
+    <!-- Скрипт для интерактивности сайта -->
+</body>
+</html>

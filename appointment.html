@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Основные настройки страницы -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Записаться на услугу - Студия маникюра "Милка"</title>
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Подключение шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <!-- Логотип -->
+            <div class="logo">
+                <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
+            </div>
+            
+            <!-- Навигационное меню -->
+            <nav>
+                <ul>
+                    <li><a href="salon_manicur.html#services">Услуги</a></li>
+                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
+                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Кнопки в шапке -->
+            <div class="header-actions">
+                <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                <a href="appointment.html" class="btn-primary">Записаться</a>
+                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основная секция с формой записи -->
+    <div class="appointment-page">
+        <div class="container">
+            <div class="appointment-form-wrapper">
+                <!-- Заголовок формы -->
+                <h2>Записаться на услугу</h2>
+                <p class="form-subtitle">Заполните форму и мы подтвердим запись в ближайшее время</p>
+
+                <!-- Сообщение об успехе (скрыто по умолчанию) -->
+                <div id="successMessage" class="success-message">
+                    <strong>✓ Заявка отправлена!</strong><br>
+                    Мы свяжемся с вами в течение 15 минут для подтверждения записи.
+                </div>
+
+                <!-- Сообщение об ошибке (скрыто по умолчанию) -->
+                <div id="errorMessage" class="error-message">
+                    <strong>✗ Ошибка!</strong><br>
+                    Пожалуйста, проверьте правильность заполнения полей.
+                </div>
+
+                <!-- Форма записи -->
+                <form id="appointment-form">
+                    <!-- Выбор услуги (загружается из базы данных через JS) -->
+                    <label for="service-select">Выберите услугу *</label>
+                    <select id="service-select" name="service" required>
+                        <option value="">-- Выберите услугу --</option>
+                    </select>
+                    <div class="error-message" id="service-select-error"></div>
+
+                    <!-- Выбор мастера (загружается из базы данных через JS) -->
+                    <label for="master-select">Выберите мастера *</label>
+                    <select id="master-select" name="master" required>
+                        <option value="">-- Выберите мастера --</option>
+                    </select>
+                    <div class="error-message" id="master-select-error"></div>
+
+                    <!-- Дата и время записи -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="appointment-date">Дата *</label>
+                            <input type="date" id="appointment-date" name="date" required>
+                            <div class="error-message" id="appointment-date-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-time">Время *</label>
+                            <select id="appointment-time" name="time" required>
+                                <option value="">-- Выберите время --</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                            </select>
+                            <div class="error-message" id="appointment-time-error"></div>
+                        </div>
+                    </div>
+
+                    <!-- Контактный телефон -->
+                    <label for="appointment-phone">Телефон *</label>
+                    <input type="tel" id="appointment-phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+                    <div class="error-message" id="appointment-phone-error"></div>
+
+                    <!-- Кнопка отправки формы -->
+                    <button type="submit" class="btn-submit">Записаться</button>
+                </form>
+
+                <!-- Ссылка возврата на главную страницу -->
+                <div class="back-link">
+                    <a href="salon_manicur.html">← Вернуться на главную</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript файла -->
+    <script src="js/script.js"></script>
+</body>
+</html>

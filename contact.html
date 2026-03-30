@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Связаться с нами - Студия маникюра "Милка"</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="salon_manicur.html#services">Услуги</a></li>
+                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
+                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                <a href="appointment.html" class="btn-primary">Записаться</a>
+                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="contact-page">
+        <div class="container">
+            <h2>Связаться с нами</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info-block">
+                    <h3>Наши контакты</h3>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Адрес:</strong>
+                            <p>г. Москва, ул. Красоты, д. 15</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Телефон:</strong>
+                            <p><a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>Email:</strong>
+                            <p><a href="mailto:info@milka-nails.ru">info@milka-nails.ru</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <strong>Режим работы:</strong>
+                            <p>Пн-Вс: 10:00 - 21:00</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-block">
+                    <h3>Напишите нам</h3>
+                    <form id="contact-form">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        <div class="error-message" id="name-error"></div>
+
+                        <label for="phone">Телефон:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                        <div class="error-message" id="phone-error"></div>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                        <div class="error-message" id="email-error"></div>
+
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Введите ваше сообщение"></textarea>
+                        <div class="error-message" id="message-error"></div>
+
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="back-link">
+                <a href="salon_manicur.html">← Вернуться на главную</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
