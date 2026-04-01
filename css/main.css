@@ -1,0 +1,355 @@
+/* ============================================
+   ГЛАВНАЯ СТРАНИЦА (index.html)
+   Студия маникюра "Милка"
+   ============================================ */
+
+/* --- Главный экран (Hero) --- */
+.hero {
+    background: url("фон.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 10px 40px rgba(139, 115, 85, 0.3);
+}
+
+.hero h1 {
+    font-size: 56px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* --- Услуги --- */
+.services {
+    padding: 60px 0;
+}
+
+/* Слайдер скидок */
+.discount-slider-wrapper {
+    margin-bottom: 40px;
+}
+
+.discount-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+    padding: 40px 0;
+    box-shadow: 0 10px 40px rgba(139, 115, 85, 0.3);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.discount-slides {
+    display: flex;
+    animation: scrollSlides 16s linear infinite;
+    width: max-content;
+}
+
+.discount-slider:hover .discount-slides {
+    animation-play-state: paused;
+}
+
+@keyframes scrollSlides {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.discount-slide {
+    width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    padding: 20px 40px;
+}
+
+.discount-slide h3 {
+    font-size: 28px;
+    margin: 15px 0 10px 0;
+    font-weight: 700;
+    color: #fff;
+}
+
+.discount-slide p {
+    font-size: 16px;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.discount-badge {
+    display: inline-block;
+    background-color: #fff;
+    color: #8b7355;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.service-item img {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-item h3 {
+    font-size: 25.6px;
+}
+
+.service-item p {
+    font-size: 15.2px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 19.2px;
+    color: #8b7355;
+    margin-top: 10px;
+}
+
+/* --- Галерея --- */
+.gallery {
+    padding: 60px 0;
+}
+
+.gallery-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.gallery-item img {
+    max-width: 100%;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 115, 85, 0.7);
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-btn:hover {
+    background: rgba(139, 115, 85, 0.9);
+}
+
+.gallery-btn.prev {
+    left: 20px;
+}
+
+.gallery-btn.next {
+    right: 20px;
+}
+
+/* --- Мастера --- */
+#masters {
+    padding: 60px 0;
+}
+
+.masters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.master-card {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.master-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    border: 3px solid #c9a961;
+}
+
+.master-card h3 {
+    margin-bottom: 5px;
+}
+
+.master-card p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 15px;
+        margin: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .gallery-item img {
+        max-height: 350px;
+    }
+
+    .gallery-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .gallery-btn.prev {
+        left: 10px;
+    }
+
+    .gallery-btn.next {
+        right: 10px;
+    }
+
+    .services-grid,
+    .masters-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+    
+    .discount-slider {
+        padding: 30px 0;
+        min-height: 180px;
+    }
+    
+    .discount-slide {
+        width: 320px;
+        padding: 15px 30px;
+    }
+    
+    .discount-slide h3 {
+        font-size: 22px;
+    }
+    
+    .discount-slide p {
+        font-size: 14px;
+    }
+    
+    .discount-badge {
+        font-size: 20px;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .gallery-item img {
+        max-height: 280px;
+    }
+
+    .gallery-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .discount-slider {
+        padding: 25px 0;
+        min-height: 160px;
+    }
+    
+    .discount-slide {
+        width: 280px;
+        padding: 12px 25px;
+    }
+    
+    .discount-slide h3 {
+        font-size: 18px;
+    }
+    
+    .discount-slide p {
+        font-size: 13px;
+    }
+    
+    .discount-badge {
+        font-size: 18px;
+        padding: 6px 15px;
+    }
+}

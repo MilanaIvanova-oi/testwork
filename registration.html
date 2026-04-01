@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация - Студия маникюра "Милка"</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/registration.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -17,17 +18,20 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="salon_manicur.html#services">Услуги</a></li>
-                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
-                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#masters">Мастера</a></li>
+                    <li><a href="index.html#gallery">Галерея</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="contact.html" class="btn-secondary">Связаться с нами</a>
-                <a href="appointment.html" class="btn-primary">Записаться</a>
-                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
-                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
-                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                <button class="menu-toggle" id="menuToggle">Меню</button>
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
             </div>
         </div>
     </header>
@@ -38,11 +42,11 @@
                 <h2>Регистрация</h2>
                 <form id="registration-form">
                     <label for="reg-name">Ваше имя:</label>
-                    <input type="text" id="reg-name" name="name" required placeholder="Введите ваше имя">
+                    <input type="text" id="reg-name" name="name" required minlength="2" placeholder="Введите ваше имя">
                     <div class="error-message" id="reg-name-error"></div>
 
                     <label for="reg-username">Логин:</label>
-                    <input type="text" id="reg-username" name="username" required placeholder="Придумайте логин">
+                    <input type="text" id="reg-username" name="username" required minlength="3" placeholder="Придумайте логин">
                     <div class="error-message" id="reg-username-error"></div>
 
                     <label for="reg-email">Email:</label>
@@ -50,11 +54,11 @@
                     <div class="error-message" id="reg-email-error"></div>
 
                     <label for="reg-phone">Телефон:</label>
-                    <input type="tel" id="reg-phone" name="phone" required placeholder="8XXXXXXXXXX" pattern="8\d{10}" maxlength="11" inputmode="numeric">
+                    <input type="tel" id="reg-phone" name="phone" required placeholder="+7 (___) ___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}">
                     <div class="error-message" id="reg-phone-error"></div>
 
                     <label for="reg-password">Пароль:</label>
-                    <input type="password" id="reg-password" name="password" required placeholder="Придумайте пароль">
+                    <input type="password" id="reg-password" name="password" required minlength="6" placeholder="Придумайте пароль">
                     <div class="error-message" id="reg-password-error"></div>
 
                     <label for="reg-password-confirm">Подтвердите пароль:</label>
@@ -64,11 +68,12 @@
                     <button type="submit" class="btn btn-register-submit">Зарегистрироваться</button>
                 </form>
                 <div class="registration-footer">Уже есть аккаунт? <a href="login.html">Войти</a></div>
-                <div class="registration-back"><a href="salon_manicur.html">← Вернуться на главную</a></div>
+                <div class="registration-back"><a href="index.html">← Вернуться на главную</a></div>
             </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/registration.js"></script>
 </body>
 </html>

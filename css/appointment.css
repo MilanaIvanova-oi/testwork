@@ -1,0 +1,198 @@
+/* ============================================
+   СТРАНИЦА ЗАПИСИ НА УСЛУГУ (appointment.html)
+   Студия маникюра "Милка"
+   ============================================ */
+
+/* --- Контейнер страницы --- */
+.appointment-page {
+    min-height: calc(100vh - 100px);
+    padding: 60px 0;
+}
+
+/* --- Обёртка формы --- */
+.appointment-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.15);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* --- Заголовок --- */
+.appointment-form-wrapper h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #8b7355;
+}
+
+.appointment-form-wrapper .form-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95em;
+}
+
+/* --- Метки полей --- */
+.appointment-form-wrapper label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #6b5344;
+}
+
+/* --- Поля ввода --- */
+.appointment-form-wrapper input[type="text"],
+.appointment-form-wrapper input[type="email"],
+.appointment-form-wrapper input[type="tel"],
+.appointment-form-wrapper input[type="date"],
+.appointment-form-wrapper select,
+.appointment-form-wrapper textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+.appointment-form-wrapper input:focus,
+.appointment-form-wrapper select:focus,
+.appointment-form-wrapper textarea:focus {
+    outline: none;
+    border-color: #c9a961;
+    box-shadow: 0 0 5px rgba(201, 169, 97, 0.3);
+}
+
+.appointment-form-wrapper textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* --- Кнопка отправки --- */
+.appointment-form-wrapper .btn-submit {
+    width: 100%;
+    background-color: #c9a961;
+    color: #fff;
+    border: 2px solid #c9a961;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 10px 0 20px 0;
+    transition: all 0.3s ease;
+}
+
+.appointment-form-wrapper .btn-submit:hover {
+    background-color: #b89650;
+    border-color: #b89650;
+}
+
+/* --- Строки формы --- */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* --- Информация об услуге --- */
+.service-info {
+    background-color: #f9f5f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 4px solid #c9a961;
+}
+
+.service-info p {
+    margin: 5px 0;
+    color: #6b5344;
+}
+
+.service-info .price-display {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #8b7355;
+}
+
+/* --- Временные слоты --- */
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-slot {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.time-slot:hover {
+    border-color: #c9a961;
+    background-color: #fff9f0;
+}
+
+.time-slot.selected {
+    background-color: #c9a961;
+    color: #fff;
+    border-color: #c9a961;
+}
+
+.time-slot.disabled {
+    background-color: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+    border-color: #ddd;
+}
+
+/* --- Сообщения --- */
+.success-message {
+    display: none;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    display: none;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .appointment-form-wrapper {
+        padding: 25px;
+    }
+}

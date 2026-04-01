@@ -7,7 +7,8 @@
     <title>Записаться на услугу - Студия маникюра "Милка"</title>
     
     <!-- Подключение стилей -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/appointment.css">
     
     <!-- Подключение шрифтов Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,19 +27,22 @@
             <!-- Навигационное меню -->
             <nav>
                 <ul>
-                    <li><a href="salon_manicur.html#services">Услуги</a></li>
-                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
-                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#masters">Мастера</a></li>
+                    <li><a href="index.html#gallery">Галерея</a></li>
                 </ul>
             </nav>
             
             <!-- Кнопки в шапке -->
             <div class="header-actions">
-                <a href="contact.html" class="btn-secondary">Связаться с нами</a>
-                <a href="appointment.html" class="btn-primary">Записаться</a>
-                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
-                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
-                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                <button class="menu-toggle" id="menuToggle">Меню</button>
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
             </div>
         </div>
     </header>
@@ -109,7 +113,7 @@
 
                     <!-- Контактный телефон -->
                     <label for="appointment-phone">Телефон *</label>
-                    <input type="tel" id="appointment-phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+                    <input type="tel" id="appointment-phone" name="phone" placeholder="+7 (___) ___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" required>
                     <div class="error-message" id="appointment-phone-error"></div>
 
                     <!-- Кнопка отправки формы -->
@@ -118,13 +122,14 @@
 
                 <!-- Ссылка возврата на главную страницу -->
                 <div class="back-link">
-                    <a href="salon_manicur.html">← Вернуться на главную</a>
+                    <a href="index.html">← Вернуться на главную</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Подключение JavaScript файла -->
-    <script src="js/script.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/appointment.js"></script>
 </body>
 </html>

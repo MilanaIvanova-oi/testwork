@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Студия маникюра "Милка"</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">
+            <div class="logo logo-left">
                 <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
             </div>
             <nav>
@@ -20,14 +21,21 @@
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#masters">Мастера</a></li>
                     <li><a href="#gallery">Галерея</a></li>
+                    <li><button class="menu-toggle" id="menuToggle">Меню</button></li>
                 </ul>
             </nav>
+            <!-- Кнопки в шапке -->
             <div class="header-actions">
-                <a href="contact.html" class="btn-secondary">Связаться с нами</a>
-                <a href="appointment.html" class="btn-primary">Записаться</a>
-                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
-                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
-                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
+            </div>
+            <div class="logo logo-right">
+                <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
             </div>
         </div>
     </header>
@@ -35,44 +43,93 @@
         <div class="hero-content">
             <h1>Преобразите ваши руки</h1>
             <p>Профессиональный маникюр, педикюр и дизайн ногтей от наших экспертов.</p>
-            <a href="#appointment" class="btn-hero">Записаться онлайн</a>
+            <a href="appointment.html" class="btn-hero">Записаться онлайн</a>
         </div>
     </div>
-    <div class="services">
+    <div id="services" class="services">
         <div class="container">
+            <!-- Слайдер со скидками -->
+            <div class="discount-slider-wrapper">
+                <div class="discount-slider">
+                    <div class="discount-slides">
+                        <div class="discount-slide">
+                            <span class="discount-badge">-10%</span>
+                            <h3>На первый визит</h3>
+                            <p>Скидка для новых клиентов</p>
+                        </div>
+                        <div class="discount-slide">
+                            <span class="discount-badge">-15%</span>
+                            <h3>Комплекс "Всё включено"</h3>
+                            <p>Маникюр + педикюр + покрытие</p>
+                        </div>
+                        <div class="discount-slide">
+                            <span class="discount-badge">-20%</span>
+                            <h3>Дневная скидка</h3>
+                            <p>С 10:00 до 14:00 по будням</p>
+                        </div>
+                        <div class="discount-slide">
+                            <span class="discount-badge">-25%</span>
+                            <h3>Приведи подругу</h3>
+                            <p>Скидка вам обеим</p>
+                        </div>
+                        <!-- Дубликаты для бесконечной прокрутки -->
+                        <div class="discount-slide">
+                            <span class="discount-badge">-10%</span>
+                            <h3>На первый визит</h3>
+                            <p>Скидка для новых клиентов</p>
+                        </div>
+                        <div class="discount-slide">
+                            <span class="discount-badge">-15%</span>
+                            <h3>Комплекс "Всё включено"</h3>
+                            <p>Маникюр + педикюр + покрытие</p>
+                        </div>
+                        <div class="discount-slide">
+                            <span class="discount-badge">-20%</span>
+                            <h3>Дневная скидка</h3>
+                            <p>С 10:00 до 14:00 по будням</p>
+                        </div>
+                        <div class="discount-slide">
+                            <span class="discount-badge">-25%</span>
+                            <h3>Приведи подругу</h3>
+                            <p>Скидка вам обеим</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <h2>Наши Услуги</h2>
             <div class="services-grid">
                 <!-- Услуги будут загружены через JS -->
             </div>
         </div>
     </div>
-        <div class="gallery">
+        <div id="gallery" class="gallery">
             <div class="container">
                 <h2>Галерея работ</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="img/работа1.jpg"alt="Работа 1">
+                        <img src="img/работа1.jpg" alt="Работа 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/работа2.jpg"alt="Работа 2">
+                        <img src="img/работа2.jpg" alt="Работа 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/работа3.jpg"alt="Работа 3">
+                        <img src="img/работа3.jpg" alt="Работа 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/работа4.jpg"alt="Работа 4">
+                        <img src="img/работа4.jpg" alt="Работа 4">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/работа5.jpg"alt="Работа 5">
+                        <img src="img/работа5.jpg" alt="Работа 5">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/работа6.jpg"alt="Работа 6">
+                        <img src="img/работа6.jpg" alt="Работа 6">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/работа7.jpg"alt="Работа 7">
+                        <img src="img/работа7.jpg" alt="Работа 7">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/работа8.jpg"alt="Работа 8">
+                        <img src="img/работа8.jpg" alt="Работа 8">
                     </div>
 
                 </div>
@@ -137,7 +194,8 @@
 
 
     <!-- Подключение JavaScript-файла -->
-    <script src="js/script.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
     <!-- Скрипт для интерактивности сайта -->
 </body>
 </html>

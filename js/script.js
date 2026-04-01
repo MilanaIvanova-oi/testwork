@@ -3,34 +3,29 @@
 // Отправляет данные на сервер для регистрации
 // ============================================
 async function fetchData(name, username, email, phone, password) {
-    // Формируем URL с данными для отправки
-    let url = `http://localhost/myserver/?name=${encodeURIComponent(name)}&username=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&password=${encodeURIComponent(password)}`
+    let url = `http://localhost/myserver/`
+    let d = { name, username, email, phone, password }
 
     try {
-        // Отправляем запрос на сервер
         let response = await fetch(url, {
-            method: 'GET',
-            headers: { Accept: 'application/json' },
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        
-        // Проверяем статус ответа
-        if (!response.ok) {
-            throw new Error('HTTP ошибка: ' + response.status)
-        }
-        
-        let text = await response.text()
-        console.log('Ответ сервера:', text)
-        
-        let data = JSON.parse(text)
 
-        // Если регистрация успешна - сохраняем данные и переходим на главную
-        if (data.status === 'success') {
-            alert(data.message)
+        let result = await response.json()
+        console.log('Ответ сервера:', result)
+
+        if (result.status === 'success') {
+            alert(result.message)
             localStorage.setItem('isLoggedIn', 'true')
             localStorage.setItem('username', username)
-            window.location.href = 'salon_manicur.html'
+            window.location.href = 'index.html'
         } else {
-            alert(data.message)
+            alert(result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -43,25 +38,27 @@ async function fetchData(name, username, email, phone, password) {
 // Проверяет логин и пароль
 // ============================================
 async function fetchLogin(username, password) {
-    // Формируем URL с данными для входа
-    let url = `http://localhost/myserver/?action=${encodeURIComponent('login')}&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+    let url = `http://localhost/myserver/`
+    let d = { action: 'login', username, password }
 
     try {
-        // Отправляем запрос на сервер
         let response = await fetch(url, {
-            method: 'GET',
-            headers: { Accept: 'application/json' },
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        let data = await response.json()
+        let result = await response.json()
 
-        // Если вход успешен - сохраняем данные и переходим на главную
-        if (data.status === 'success') {
-            alert(data.message)
+        if (result.status === 'success') {
+            alert(result.message)
             localStorage.setItem('isLoggedIn', 'true')
             localStorage.setItem('username', username)
-            window.location.href = 'salon_manicur.html'
+            window.location.href = 'index.html'
         } else {
-            alert(data.message)
+            alert(result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -74,26 +71,28 @@ async function fetchLogin(username, password) {
 // Отправляет сообщение администратору
 // ============================================
 async function fetchContact(name, phone, email, message) {
-    // Формируем URL с данными сообщения
-    let url = `http://localhost/myserver/?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`
+    let url = `http://localhost/myserver/`
+    let d = { name, phone, email, message }
 
     try {
-        // Отправляем запрос на сервер
         let response = await fetch(url, {
-            method: 'GET',
-            headers: {Accept: 'application/json'},
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        let data = await response.json()
+        let result = await response.json()
 
-        // Если успешно - очищаем форму
-        if (data.status === 'success') {
-            alert(data.message)
+        if (result.status === 'success') {
+            alert(result.message)
             const contactForm = document.querySelector('#contact-form')
             if (contactForm) {
                 contactForm.reset()
             }
         } else {
-            alert(data.message)
+            alert(result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -106,20 +105,24 @@ async function fetchContact(name, phone, email, message) {
 // Загружает список услуг для отображения
 // ============================================
 async function fetchServices() {
-    let url = `http://localhost/myserver/?action=${encodeURIComponent('get_services')}`
+    let url = `http://localhost/myserver/`
+    let d = { action: 'get_services' }
 
     try {
         let response = await fetch(url, {
-            method: 'GET',
-            headers: { Accept: 'application/json' },
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        let data = await response.json()
+        let result = await response.json()
 
-        // Если успешно - отображаем услуги
-        if (data.status === 'success') {
-            renderServices(data.services)
+        if (result.status === 'success') {
+            renderServices(result.services)
         } else {
-            console.error('Ошибка:', data.message)
+            console.error('Ошибка:', result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -155,20 +158,24 @@ function renderServices(services) {
 // Загружает список мастеров для отображения
 // ============================================
 async function fetchMasters() {
-    let url = `http://localhost/myserver/?action=${encodeURIComponent('get_masters')}`
+    let url = `http://localhost/myserver/`
+    let d = { action: 'get_masters' }
 
     try {
         let response = await fetch(url, {
-            method: 'GET',
-            headers: { Accept: 'application/json' },
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        let data = await response.json()
+        let result = await response.json()
 
-        // Если успешно - отображаем мастеров
-        if (data.status === 'success') {
-            renderMasters(data.masters)
+        if (result.status === 'success') {
+            renderMasters(result.masters)
         } else {
-            console.error('Ошибка:', data.message)
+            console.error('Ошибка:', result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -203,20 +210,24 @@ function renderMasters(masters) {
 // Загружает услуги в выпадающий список
 // ============================================
 async function fetchAppointmentServices() {
-    let url = `http://localhost/myserver/?action=${encodeURIComponent('get_appointment_services')}`
+    let url = `http://localhost/myserver/`
+    let d = { action: 'get_appointment_services' }
 
     try {
         let response = await fetch(url, {
-            method: 'GET',
-            headers: { Accept: 'application/json' },
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        let data = await response.json()
+        let result = await response.json()
 
-        // Если успешно - заполняем селект
-        if (data.status === 'success') {
-            fillServiceSelect(data.services)
+        if (result.status === 'success') {
+            fillServiceSelect(result.services)
         } else {
-            console.error('Ошибка:', data.message)
+            console.error('Ошибка:', result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -247,20 +258,24 @@ function fillServiceSelect(services) {
 // Загружает мастеров в выпадающий список
 // ============================================
 async function fetchAppointmentMasters() {
-    let url = `http://localhost/myserver/?action=${encodeURIComponent('get_appointment_masters')}`
+    let url = `http://localhost/myserver/`
+    let d = { action: 'get_appointment_masters' }
 
     try {
         let response = await fetch(url, {
-            method: 'GET',
-            headers: { Accept: 'application/json' },
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        let data = await response.json()
+        let result = await response.json()
 
-        // Если успешно - заполняем селект
-        if (data.status === 'success') {
-            fillMasterSelect(data.masters)
+        if (result.status === 'success') {
+            fillMasterSelect(result.masters)
         } else {
-            console.error('Ошибка:', data.message)
+            console.error('Ошибка:', result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -291,25 +306,36 @@ function fillMasterSelect(masters) {
 // Сохраняет запись в базу данных
 // ============================================
 async function submitAppointment(username, service_id, master_id, date, time, phone) {
-    // Формируем URL с данными записи
-    let url = `http://localhost/myserver/?action=${encodeURIComponent('submit_appointment')}&username=${encodeURIComponent(username)}&service_id=${encodeURIComponent(service_id)}&master_id=${encodeURIComponent(master_id)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}&phone=${encodeURIComponent(phone)}`
+    let url = `http://localhost/myserver/`
+    let d = {
+        action: 'submit_appointment',
+        username,
+        service_id,
+        master_id,
+        date,
+        time,
+        phone
+    }
 
     try {
         let response = await fetch(url, {
-            method: 'GET',
-            headers: { Accept: 'application/json' },
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(d).toString(),
         })
-        let data = await response.json()
+        let result = await response.json()
 
-        // Если запись успешна - очищаем форму
-        if (data.status === 'success') {
-            alert(data.message)
+        if (result.status === 'success') {
+            alert(result.message)
             const appointmentForm = document.querySelector('#appointment-form')
             if (appointmentForm) {
                 appointmentForm.reset()
             }
         } else {
-            alert(data.message)
+            alert(result.message)
         }
     } catch (error) {
         console.error('Ошибка:', error)
@@ -322,127 +348,57 @@ async function submitAppointment(username, service_id, master_id, date, time, ph
 // Навешивает обработчики на все формы
 // ============================================
 
-// --- Функции валидации полей ---
-function validateName(name) {
-    const nameRegex = /^[a-zA-Zа-яА-ЯёЁ]{2,50}$/
-    return nameRegex.test(name)
-}
-
-function validateUsername(username) {
-    const usernameRegex = /^[a-zA-Zа-яА-ЯёЁ0-9]{3,20}$/
-    return usernameRegex.test(username)
-}
-
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-}
-
-function validatePhone(phone) {
-    const phoneRegex = /^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/
-    return phoneRegex.test(phone)
-}
-
-function validatePassword(password) {
-    const passwordRegex = /^[a-zA-Zа-яА-ЯёЁ0-9]{6,}$/
-    const hasLetter = /[a-zA-Zа-яА-ЯёЁ]/.test(password)
-    const hasDigit = /[0-9]/.test(password)
-    return passwordRegex.test(password) && hasLetter && hasDigit
-}
-
-// --- Показ/скрытие ошибок ---
-function showError(fieldId, message) {
+// --- Простая валидация через validity API ---
+function validateField(fieldId) {
     const field = document.querySelector('#' + fieldId)
     const errorDiv = document.querySelector('#' + fieldId + '-error')
-    if (field && errorDiv) {
-        field.classList.add('input-error')
-        errorDiv.textContent = message
-        errorDiv.classList.add('visible')
-    }
-}
-
-function hideError(fieldId) {
-    const field = document.querySelector('#' + fieldId)
-    const errorDiv = document.querySelector('#' + fieldId + '-error')
-    if (field && errorDiv) {
-        field.classList.remove('input-error')
-        if (field.tagName !== 'TEXTAREA') {
-            field.classList.add('input-valid')
-        }
-        errorDiv.textContent = ''
-        errorDiv.classList.remove('visible')
-    }
-}
-
-// --- Универсальная функция валидации поля ---
-function validateFieldWithRules(fieldId, rules) {
-    const field = document.querySelector('#' + fieldId)
-    if (!field) return
+    if (!field || !errorDiv) return true
 
     const value = field.value
-    let isValid = true
-    let errorMessage = ''
 
-    if (rules.name && !validateName(value)) {
-        isValid = false
-        errorMessage = 'Имя должно содержать только буквы (2-50 символов)'
-    } else if (rules.username && !validateUsername(value)) {
-        isValid = false
-        errorMessage = 'Логин должен содержать только буквы и цифры (3-20 символов)'
-    } else if (rules.email && !validateEmail(value)) {
-        isValid = false
-        errorMessage = 'Введите корректный email'
-    } else if (rules.phone && !validatePhone(value)) {
-        isValid = false
-        errorMessage = 'Телефон должен быть в формате +7 (XXX) XXX-XX-XX'
-    } else if (rules.password && !validatePassword(value)) {
-        isValid = false
-        errorMessage = 'Пароль должен содержать минимум 6 символов (буквы и цифры)'
-    } else if (rules.required && !value) {
-        isValid = false
-        errorMessage = rules.required
-    } else if (rules.confirmPassword) {
-        const password = document.querySelector('#' + rules.confirmPassword).value
-        if (value !== password) {
-            isValid = false
-            errorMessage = 'Пароли не совпадают'
+    // Специальная проверка для имени (только русские буквы)
+    if (fieldId === 'reg-name' || fieldId === 'name') {
+        const nameRegex = /^[а-яА-ЯёЁ\s]{2,50}$/
+        if (!nameRegex.test(value)) {
+            errorDiv.textContent = 'Имя должно содержать только русские буквы (2-50 символов)'
+            errorDiv.style.display = 'block'
+            field.classList.add('input-error')
+            return false
+        } else {
+            errorDiv.textContent = ''
+            errorDiv.style.display = 'none'
+            field.classList.remove('input-error')
+            return true
         }
     }
 
-    if (!isValid) {
-        showError(fieldId, errorMessage)
-    } else {
-        hideError(fieldId)
+    // Специальная проверка для подтверждения пароля
+    if (fieldId === 'reg-password-confirm') {
+        const password = document.querySelector('#reg-password').value
+        if (field.value !== password) {
+            errorDiv.textContent = 'Пароли не совпадают'
+            errorDiv.style.display = 'block'
+            field.classList.add('input-error')
+            return false
+        } else {
+            errorDiv.textContent = ''
+            errorDiv.style.display = 'none'
+            field.classList.remove('input-error')
+            return true
+        }
     }
-    return isValid
-}
 
-// --- Настройки валидации для полей ---
-const validationRules = {
-    'reg-name': { name: true },
-    'reg-username': { username: true },
-    'reg-email': { email: true },
-    'reg-phone': { phone: true },
-    'reg-password': { password: true },
-    'reg-password-confirm': { confirmPassword: 'reg-password' },
-    'username': { username: true },
-    'password': { password: true },
-    'name': { name: true },
-    'phone': { phone: true },
-    'email': { email: true },
-    'message': { required: 'Введите сообщение' },
-    'service-select': { required: 'Выберите услугу' },
-    'master-select': { required: 'Выберите мастера' },
-    'appointment-date': { required: 'Выберите дату' },
-    'appointment-time': { required: 'Выберите время' },
-    'appointment-phone': { phone: true }
-}
-
-// --- Универсальная функция для поля формы ---
-function validateGenericField(fieldId) {
-    const rules = validationRules[fieldId]
-    if (rules) {
-        validateFieldWithRules(fieldId, rules)
+    // Используем встроенную валидацию браузера
+    if (!field.validity.valid) {
+        errorDiv.textContent = field.validationMessage
+        errorDiv.style.display = 'block'
+        field.classList.add('input-error')
+        return false
+    } else {
+        errorDiv.textContent = ''
+        errorDiv.style.display = 'none'
+        field.classList.remove('input-error')
+        return true
     }
 }
 
@@ -454,10 +410,10 @@ function get_data_form() {
             if (field) {
                 const eventType = field.tagName === 'SELECT' ? 'change' : 'input'
                 field.addEventListener(eventType, function() {
-                    validateGenericField(fieldId)
+                    validateField(fieldId)
                 })
                 field.addEventListener('blur', function() {
-                    validateGenericField(fieldId)
+                    validateField(fieldId)
                 })
             }
         })
@@ -475,7 +431,7 @@ function get_data_form() {
             let hasErrors = false
 
             fields.forEach(function(fieldId) {
-                if (!validateFieldWithRules(fieldId, validationRules[fieldId])) {
+                if (!validateField(fieldId)) {
                     hasErrors = true
                 }
             })
@@ -503,7 +459,7 @@ function get_data_form() {
 
             let hasErrors = false
             ['username', 'password'].forEach(function(fieldId) {
-                if (!validateFieldWithRules(fieldId, validationRules[fieldId])) {
+                if (!validateField(fieldId)) {
                     hasErrors = true
                 }
             })
@@ -528,7 +484,7 @@ function get_data_form() {
 
             let hasErrors = false
             ['name', 'phone', 'email', 'message'].forEach(function(fieldId) {
-                if (!validateFieldWithRules(fieldId, validationRules[fieldId])) {
+                if (!validateField(fieldId)) {
                     hasErrors = true
                 }
             })
@@ -555,7 +511,7 @@ function get_data_form() {
 
             let hasErrors = false
             ['service-select', 'master-select', 'appointment-date', 'appointment-time', 'appointment-phone'].forEach(function(fieldId) {
-                if (!validateFieldWithRules(fieldId, validationRules[fieldId])) {
+                if (!validateField(fieldId)) {
                     hasErrors = true
                 }
             })
@@ -643,6 +599,102 @@ function initAppointmentPage() {
 }
 
 // ============================================
+// СЛАЙДЕР ДЛЯ ГАЛЕРЕИ
+// ============================================
+function initGallerySlider() {
+    const galleryGrid = document.querySelector('.gallery-grid')
+    if (!galleryGrid) return
+
+    // Создаём обёртку слайдера
+    const sliderWrapper = document.createElement('div')
+    sliderWrapper.className = 'gallery-slider'
+    galleryGrid.parentNode.insertBefore(sliderWrapper, galleryGrid)
+
+    // Создаём контейнер для слайдов
+    const slidesContainer = document.createElement('div')
+    slidesContainer.className = 'gallery-slides'
+    slidesContainer.appendChild(galleryGrid)
+
+    // Создаём кнопки
+    const prevBtn = document.createElement('button')
+    prevBtn.className = 'gallery-btn prev'
+    prevBtn.innerHTML = '&#10094;'
+    prevBtn.setAttribute('aria-label', 'Предыдущее фото')
+
+    const nextBtn = document.createElement('button')
+    nextBtn.className = 'gallery-btn next'
+    nextBtn.innerHTML = '&#10095;'
+    nextBtn.setAttribute('aria-label', 'Следующее фото')
+
+    sliderWrapper.appendChild(slidesContainer)
+    sliderWrapper.appendChild(prevBtn)
+    sliderWrapper.appendChild(nextBtn)
+
+    const slides = document.querySelectorAll('.gallery-item')
+    let currentIndex = 0
+
+    function updateSlide() {
+        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length
+        updateSlide()
+    })
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length
+        updateSlide()
+    })
+
+    // Стили
+    galleryGrid.style.display = 'flex'
+    galleryGrid.style.transition = 'transform 0.5s ease'
+    galleryGrid.style.alignItems = 'center'
+    slides.forEach(slide => {
+        slide.style.minWidth = '100%'
+        slide.style.boxSizing = 'border-box'
+        slide.style.display = 'flex'
+        slide.style.alignItems = 'center'
+        slide.style.justifyContent = 'center'
+        slide.style.padding = '20px'
+    })
+}
+
+// ============================================
+// ВЫПАДАЮЩЕЕ МЕНЮ В ШАПКЕ
+// ============================================
+function initHeaderMenu() {
+    const menuToggle = document.querySelector('#menuToggle')
+    const headerMenu = document.querySelector('#headerMenu')
+
+    if (menuToggle && headerMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation()
+            menuToggle.classList.toggle('active')
+            headerMenu.classList.toggle('active')
+        })
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!headerMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active')
+                headerMenu.classList.remove('active')
+            }
+        })
+
+        // Закрытие меню при клике на ссылку
+        const menuLinks = headerMenu.querySelectorAll('a')
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active')
+                headerMenu.classList.remove('active')
+            })
+        })
+    }
+}
+
+// ============================================
 // ЗАГРУЗКА СТРАНИЦЫ
 // Вызывается когда страница готова
 // ============================================
@@ -652,4 +704,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchServices()           // Загрузка услуг
     fetchMasters()            // Загрузка мастеров
     initAppointmentForm()     // Загрузка для формы записи
+    initGallerySlider()       // Инициализация слайдера галереи
+    initHeaderMenu()          // Выпадающее меню
 })

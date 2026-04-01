@@ -1,0 +1,242 @@
+/* ============================================
+   СТРАНИЦА КОНТАКТОВ (contact.html)
+   Студия маникюра "Милка"
+   ============================================ */
+
+/* --- Контейнер страницы --- */
+.contact-page {
+    padding: 60px 0;
+    min-height: calc(100vh - 100px);
+}
+
+.contact-page h2 {
+    margin-bottom: 40px;
+    color: #8b7355;
+}
+
+/* --- Контент --- */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.contact-info-block,
+.contact-form-block {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.15);
+}
+
+.contact-info-block h3,
+.contact-form-block h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #8b7355;
+    font-size: 1.8em;
+}
+
+/* --- Контактная информация --- */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    font-size: 1.5em;
+    min-width: 30px;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #6b5344;
+}
+
+.contact-item p {
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.contact-item a {
+    color: #c9a961;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    color: #8b7355;
+}
+
+/* --- Социальные сети --- */
+.social-links {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.social-links h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #6b5344;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    background-color: #c9a961;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+    background-color: #8b7355;
+    color: #fff;
+}
+
+/* --- Форма контактов --- */
+.contact-form-block label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #6b5344;
+}
+
+.contact-form-block input[type="text"],
+.contact-form-block input[type="tel"],
+.contact-form-block input[type="email"],
+.contact-form-block textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+.contact-form-block textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form-block .btn-primary {
+    width: 100%;
+    margin: 10px 0 20px 0;
+    font-size: 1.1em;
+}
+
+/* --- Ссылка назад --- */
+.back-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.back-link a {
+    color: #c9a961;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* --- Общая контактная информация (для подвала) --- */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-item a,
+.contact-item p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0;
+}
+
+.contact-actions {
+    text-align: center;
+}
+
+/* --- Обёртка формы (общая) --- */
+.contact-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.15);
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contact-form-wrapper h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #8b7355;
+}
+
+.contact-form-wrapper label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #6b5344;
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-form-wrapper textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* --- Подвал страницы контактов --- */
+.contact-back {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.contact-back a {
+    color: #c9a961;
+    font-weight: bold;
+}
+
+.contact-back {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}

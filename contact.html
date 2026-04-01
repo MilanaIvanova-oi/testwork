@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Связаться с нами - Студия маникюра "Милка"</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -17,17 +18,20 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="salon_manicur.html#services">Услуги</a></li>
-                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
-                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#masters">Мастера</a></li>
+                    <li><a href="index.html#gallery">Галерея</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="contact.html" class="btn-secondary">Связаться с нами</a>
-                <a href="appointment.html" class="btn-primary">Записаться</a>
-                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
-                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
-                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                <button class="menu-toggle" id="menuToggle">Меню</button>
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
             </div>
         </div>
     </header>
@@ -78,11 +82,11 @@
                     <h3>Напишите нам</h3>
                     <form id="contact-form">
                         <label for="name">Ваше имя:</label>
-                        <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        <input type="text" id="name" name="name" required minlength="2" placeholder="Введите ваше имя">
                         <div class="error-message" id="name-error"></div>
 
                         <label for="phone">Телефон:</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}">
                         <div class="error-message" id="phone-error"></div>
 
                         <label for="email">Email:</label>
@@ -99,11 +103,12 @@
             </div>
             
             <div class="back-link">
-                <a href="salon_manicur.html">← Вернуться на главную</a>
+                <a href="index.html">← Вернуться на главную</a>
             </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 </html>
