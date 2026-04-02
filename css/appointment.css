@@ -3,6 +3,13 @@
    Студия маникюра "Милка"
    ============================================ */
 
+:root {
+    --bordeaux-primary: #800020;
+    --bordeaux-dark: #5a0016;
+    --bordeaux-light: #a00028;
+    --bordeaux-accent: #c9a961;
+}
+
 /* --- Контейнер страницы --- */
 .appointment-page {
     min-height: calc(100vh - 100px);
@@ -14,7 +21,7 @@
     background-color: rgba(255, 255, 255, 0.95);
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.15);
+    box-shadow: 0 4px 20px rgba(128, 0, 32, 0.15);
     max-width: 600px;
     width: 100%;
     margin: 0 auto;
@@ -24,7 +31,7 @@
 .appointment-form-wrapper h2 {
     text-align: center;
     margin-bottom: 10px;
-    color: #8b7355;
+    color: var(--bordeaux-primary);
 }
 
 .appointment-form-wrapper .form-subtitle {
@@ -39,7 +46,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #6b5344;
+    color: var(--bordeaux-dark);
 }
 
 /* --- Поля ввода --- */
@@ -63,8 +70,8 @@
 .appointment-form-wrapper select:focus,
 .appointment-form-wrapper textarea:focus {
     outline: none;
-    border-color: #c9a961;
-    box-shadow: 0 0 5px rgba(201, 169, 97, 0.3);
+    border-color: var(--bordeaux-primary);
+    box-shadow: 0 0 5px rgba(128, 0, 32, 0.3);
 }
 
 .appointment-form-wrapper textarea {
@@ -75,9 +82,9 @@
 /* --- Кнопка отправки --- */
 .appointment-form-wrapper .btn-submit {
     width: 100%;
-    background-color: #c9a961;
+    background-color: var(--bordeaux-primary);
     color: #fff;
-    border: 2px solid #c9a961;
+    border: 2px solid var(--bordeaux-primary);
     padding: 15px 25px;
     border-radius: 5px;
     cursor: pointer;
@@ -88,8 +95,8 @@
 }
 
 .appointment-form-wrapper .btn-submit:hover {
-    background-color: #b89650;
-    border-color: #b89650;
+    background-color: var(--bordeaux-dark);
+    border-color: var(--bordeaux-dark);
 }
 
 /* --- Строки формы --- */
@@ -108,18 +115,18 @@
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-    border-left: 4px solid #c9a961;
+    border-left: 4px solid var(--bordeaux-primary);
 }
 
 .service-info p {
     margin: 5px 0;
-    color: #6b5344;
+    color: var(--bordeaux-dark);
 }
 
 .service-info .price-display {
     font-weight: bold;
     font-size: 1.2em;
-    color: #8b7355;
+    color: var(--bordeaux-primary);
 }
 
 /* --- Временные слоты --- */
@@ -141,14 +148,14 @@
 }
 
 .time-slot:hover {
-    border-color: #c9a961;
-    background-color: #fff9f0;
+    border-color: var(--bordeaux-primary);
+    background-color: #fff0f5;
 }
 
 .time-slot.selected {
-    background-color: #c9a961;
+    background-color: var(--bordeaux-primary);
     color: #fff;
-    border-color: #c9a961;
+    border-color: var(--bordeaux-primary);
 }
 
 .time-slot.disabled {

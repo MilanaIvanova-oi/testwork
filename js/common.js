@@ -100,6 +100,81 @@ function validateField(fieldId) {
         }
     }
 
+    if (fieldId === 'email') {
+        const emailRegex = /^[a-zA-Z0-9._-]+@(gmail|mail|yandex)\.(ru|com)$/
+        if (!emailRegex.test(value)) {
+            errorDiv.textContent = 'Email должен быть @gmail, @mail или @yandex (.ru или .com)'
+            errorDiv.style.display = 'block'
+            field.classList.add('input-error')
+            return false
+        } else {
+            errorDiv.textContent = ''
+            errorDiv.style.display = 'none'
+            field.classList.remove('input-error')
+            return true
+        }
+    }
+
+    if (fieldId === 'phone') {
+        const phoneRegex = /^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/
+        if (!phoneRegex.test(value)) {
+            errorDiv.textContent = 'Введите номер в формате +7 (___) ___-__-__'
+            errorDiv.style.display = 'block'
+            field.classList.add('input-error')
+            return false
+        } else {
+            errorDiv.textContent = ''
+            errorDiv.style.display = 'none'
+            field.classList.remove('input-error')
+            return true
+        }
+    }
+
+    if (fieldId === 'reg-phone') {
+        const phoneRegex = /^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/
+        if (!phoneRegex.test(value)) {
+            errorDiv.textContent = 'Введите номер в формате +7 (___) ___-__-__'
+            errorDiv.style.display = 'block'
+            field.classList.add('input-error')
+            return false
+        } else {
+            errorDiv.textContent = ''
+            errorDiv.style.display = 'none'
+            field.classList.remove('input-error')
+            return true
+        }
+    }
+
+    if (fieldId === 'reg-email') {
+        const emailRegex = /^[a-zA-Z0-9._-]+@(gmail|mail|yandex)\.(ru|com)$/
+        if (!emailRegex.test(value)) {
+            errorDiv.textContent = 'Email должен быть @gmail, @mail или @yandex (.ru или .com)'
+            errorDiv.style.display = 'block'
+            field.classList.add('input-error')
+            return false
+        } else {
+            errorDiv.textContent = ''
+            errorDiv.style.display = 'none'
+            field.classList.remove('input-error')
+            return true
+        }
+    }
+
+    if (fieldId === 'reg-password') {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[_@#$%^&*(),.?!:;])[a-zA-Z\d_@#$%^&*(),.?!:;]{8,}$/
+        if (!passwordRegex.test(value)) {
+            errorDiv.textContent = 'Пароль должен содержать минимум 8 символов, 1 заглавную букву, 1 строчную букву, 1 цифру и 1 спецсимвол (_, @, #, $ и т.д.)'
+            errorDiv.style.display = 'block'
+            field.classList.add('input-error')
+            return false
+        } else {
+            errorDiv.textContent = ''
+            errorDiv.style.display = 'none'
+            field.classList.remove('input-error')
+            return true
+        }
+    }
+
     if (fieldId === 'reg-password-confirm') {
         const password = document.querySelector('#reg-password').value
         if (field.value !== password) {

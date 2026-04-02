@@ -132,21 +132,21 @@ function fillMasterSelect(masters) {
 // ============================================
 // ПРОВЕРКА ПЕРЕД ЗАПИСЬЮ
 // ============================================
-function checkAppointmentAuth() {
-    if (!isLoggedIn()) {
-        alert('Для записи на услугу необходимо войти в систему или зарегистрироваться.')
-        window.location.href = 'login.html'
-        return false
-    }
-    return true
-}
+// function checkAppointmentAuth() {
+//     if (!isLoggedIn()) {
+//         alert('Для записи на услугу необходимо войти в систему или зарегистрироваться.')
+//         window.location.href = 'login.html'
+//         return false
+//     }
+//     return true
+// }
 
 // ============================================
 // ИНИЦИАЛИЗАЦИЯ ФОРМЫ ЗАПИСИ
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
     // Проверка авторизации
-    checkAppointmentAuth()
+    // checkAppointmentAuth()
 
     // Загрузка данных для формы
     fetchAppointmentServices()

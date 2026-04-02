@@ -91,6 +91,7 @@ function renderMasters(masters) {
         masterCard.innerHTML = `
             <img src="${master.image}" alt="${master.name}">
             <h3>${master.name}</h3>
+            <p>${master.experience}</p>
             <p>${master.specialization}</p>
         `
         container.appendChild(masterCard)
@@ -128,18 +129,20 @@ function initGallerySlider() {
 
     const slides = document.querySelectorAll('.gallery-item')
     let currentIndex = 0
+    const itemsPerSlide = 2
 
     function updateSlide() {
-        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`
+        const slideWidth = 100 / itemsPerSlide
+        slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}%)`
     }
 
     prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length
+        currentIndex = (currentIndex - itemsPerSlide + slides.length) % slides.length
         updateSlide()
     })
 
     nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length
+        currentIndex = (currentIndex + itemsPerSlide) % slides.length
         updateSlide()
     })
 
@@ -147,7 +150,7 @@ function initGallerySlider() {
     galleryGrid.style.transition = 'transform 0.5s ease'
     galleryGrid.style.alignItems = 'center'
     slides.forEach(slide => {
-        slide.style.minWidth = '100%'
+        slide.style.minWidth = '50%'
         slide.style.boxSizing = 'border-box'
         slide.style.display = 'flex'
         slide.style.alignItems = 'center'

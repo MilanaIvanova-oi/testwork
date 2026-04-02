@@ -13,7 +13,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
-    
+
 }
  /* body {
     background: url("фон2.jpg");
@@ -21,6 +21,13 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 } */
+
+:root {
+    --bordeaux-primary: #800020;
+    --bordeaux-dark: #5a0016;
+    --bordeaux-light: #a00028;
+    --bordeaux-accent: #c9a961;
+}
 
 .container {
     width: 90%;
@@ -38,12 +45,12 @@ h1, h2, h3 {
 
 h2 {
     font-size: 2.5em;
-    color: #8b7355;
+    color: var(--bordeaux-primary);
 }
 
 h3 {
     font-size: 1.5em;
-    color: #6b5344;
+    color: var(--bordeaux-dark);
 }
 
 /* --- Ссылки --- */
@@ -54,9 +61,9 @@ a {
 
 /* --- Кнопки --- */
 .btn-primary {
-    background-color: #c9a961;
+    background-color: var(--bordeaux-primary);
     color: #fff;
-    border: 2px solid #c9a961;
+    border: 2px solid var(--bordeaux-primary);
     padding: 12px 25px;
     border-radius: 5px;
     margin: 5px;
@@ -66,8 +73,8 @@ a {
 
 .btn-secondary {
     background-color: transparent;
-    color: #c9a961;
-    border: 2px solid #c9a961;
+    color: var(--bordeaux-primary);
+    border: 2px solid var(--bordeaux-primary);
     padding: 12px 25px;
     border-radius: 5px;
     margin: 5px;
@@ -77,8 +84,8 @@ a {
 
 .btn-register {
     background-color: transparent;
-    color: #8b7355;
-    border: 2px solid #8b7355;
+    color: var(--bordeaux-dark);
+    border: 2px solid var(--bordeaux-dark);
     padding: 12px 25px;
     border-radius: 5px;
     margin: 5px;
@@ -87,7 +94,7 @@ a {
 }
 
 .btn-hero {
-    background-color: #b89650;
+    background-color: var(--bordeaux-light);
     color: #fff;
     padding: 15px 30px;
     border-radius: 5px;
@@ -100,7 +107,7 @@ a {
 header {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(139, 115, 85, 0.15);
+    box-shadow: 0 2px 10px rgba(128, 0, 32, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -118,9 +125,10 @@ header .container {
 }
 
 .logo img {
-    height: 134px;
-    width: 400px;
+    height: 93px;
+    width: 304px;
     margin: -5px -137px -7px -124px;
+    border-radius: 10px;
 }
 
 .logo-right {
@@ -160,7 +168,7 @@ header nav ul li {
 
 header nav ul li a {
     font-weight: bold;
-    color: #6b5344;
+    color: var(--bordeaux-dark);
 }
 
 /* --- Выпадающее меню кнопок --- */
@@ -169,9 +177,9 @@ header nav ul li a {
 }
 
 .menu-toggle {
-    background-color: #c9a961;
+    background-color: var(--bordeaux-primary);
     color: #fff;
-    border: 2px solid #c9a961;
+    border: 2px solid var(--bordeaux-primary);
     padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -183,8 +191,8 @@ header nav ul li a {
 }
 
 .menu-toggle:hover {
-    background-color: #b89650;
-    border-color: #b89650;
+    background-color: var(--bordeaux-dark);
+    border-color: var(--bordeaux-dark);
 }
 
 .menu-toggle::after {
@@ -203,14 +211,14 @@ header nav ul li a {
     top: 100%;
     right: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 240, 235, 0.95) 100%);
-    box-shadow: 0 8px 25px rgba(139, 115, 85, 0.25);
+    box-shadow: 0 8px 25px rgba(128, 0, 32, 0.25);
     border-radius: 10px;
     padding: 12px;
     min-width: 220px;
     z-index: 1001;
     margin-top: 8px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(201, 169, 97, 0.2);
+    border: 1px solid rgba(128, 0, 32, 0.2);
 }
 
 .header-actions-menu.active {
@@ -236,7 +244,7 @@ header nav ul li a {
     display: block;
     padding: 14px 20px;
     margin: 6px 0;
-    background: linear-gradient(135deg, #c9a961 0%, #b89650 100%);
+    background: linear-gradient(135deg, var(--bordeaux-primary) 0%, var(--bordeaux-dark) 100%);
     color: #fff;
     border: none;
     font-weight: bold;
@@ -245,16 +253,16 @@ header nav ul li a {
     border-radius: 8px;
     transition: all 0.3s ease;
     line-height: 1.4;
-    box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+    box-shadow: 0 2px 8px rgba(128, 0, 32, 0.3);
 }
 
 .header-actions-menu a:hover,
 .header-actions-menu .btn-primary:hover,
 .header-actions-menu .btn-secondary:hover,
 .header-actions-menu .btn-register:hover {
-    background: linear-gradient(135deg, #b89650 0%, #a08040 100%);
+    background: linear-gradient(135deg, var(--bordeaux-dark) 0%, var(--bordeaux-light) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.4);
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.4);
 }
 
 .header-actions-menu a:active,
@@ -273,7 +281,7 @@ footer {
 
 footer h2 {
     margin-bottom: 40px;
-    color: #8b7355;
+    color: var(--bordeaux-primary);
 }
 
 .contact-info {
