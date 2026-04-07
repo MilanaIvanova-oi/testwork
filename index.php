@@ -1,3 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /myserver/
+    
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+
+
+
 <?php
 // Настройки подключения к базе данных
 $host = '127.0.0.1';
